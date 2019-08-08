@@ -37,11 +37,12 @@ public class UserAPI {
 
     @PostMapping("/api/register")
     public ResponseVO register(@RequestBody User u){
+
         
         try{
             boolean isExist = userService.isUserExist (u);
             User newUser=new User();
-          
+
             if(isExist){
                 BeanUtils.copyProperties (u,newUser);
 
